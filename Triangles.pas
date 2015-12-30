@@ -153,6 +153,27 @@ begin
                LabelSquare.Text := 'square of isosceles triangle is: ' + FloatToStr(Square);
             end;
          end;
+      if (FirstSide <> SecondSide) and (SecondSide <> ThirdSide) and (FirstSide <> ThirdSide) then
+         begin
+            if (check = 2) then
+               begin
+                  Square := Trunc((1 / 2) * (FirstSide * SecondSide * Sin(FirstAngle)));
+                  LabelSquare.Text := 'square of derivative triangle is: ' + FloatToStr(Square);
+               end
+            else
+               if (check = 1) then
+                  begin
+                     Square := Trunc((FirstSide * SecondSide * ThirdSide) / (4 * Radius));
+                     LabelSquare.Text := 'square of derivative triangle is: ' + FloatToStr(Square);
+                  end
+               else
+                  begin
+                     semiperimeter := Round((FirstSide + SecondSide + ThirdSide) / 2);
+                     Square := Trunc(Sqrt((semiperimeter - FirstSide) * (semiperimeter - SecondSide) * (semiperimeter - ThirdSide)));
+                     LabelSquare.Text := 'square of derivative triangle is: ' + FloatToStr(Square);
+                  end;
+         end;
+
 end;
 
 procedure TForm1.btnShowMenuClick(Sender: TObject);
